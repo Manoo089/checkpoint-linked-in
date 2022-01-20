@@ -12,6 +12,7 @@
 html {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
+  letter-spacing: 0.2px;
 }
 
 body {
@@ -62,4 +63,94 @@ a {
 .container-cards__heading-showall a {
   color: #666666;
   font-weight: 500;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22%;
+  height: 35vh;
+  background-color: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.card__header-background {
+  width: 100%;
+  height: 70px;
+  background-image: url("https://source.unsplash.com/random/300×300");
+  background-size: cover;
+  background-position: center center;
+}
+
+.card__profile {
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  margin-top: 2rem;
+  background-image: url("https://randomuser.me/api/portraits/men/11.jpg");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  padding-top: 6rem;
+}
+
+.card__profile-name-text {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.card__profile-work-text {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #666666;
+}
+
+.card__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__footer-mutual {
+  display: flex;
+  color: #666666;
+  font-size: 1.5rem;
+}
+
+.infinity-svg {
+  display: flex;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+
+.card__footer-button {
+  margin-bottom: 2rem;
+  padding: 0.7rem 5rem;
+  background-color: transparent;
+  border: 2px solid #0f69c3;
+  border-radius: 1.5rem;
+  color: #0f69c3;
+  font-weight: bold;
+  font-size: 2.2rem;
+  cursor: pointer;
 }
