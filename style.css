@@ -45,9 +45,21 @@ a {
   font-weight: 500;
 }
 
-.cards {
+.container-cards {
   margin-top: 2rem;
+  padding: 0 2rem;
   background-color: var(--box-bg-color);
   border: 2px solid var(--border-color);
   border-radius: 1rem;
+}
+
+.container-cards__heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.container-cards__heading-showall a {
+  color: #666666;
+  font-weight: 500;
 }
