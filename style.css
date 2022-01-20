@@ -15,12 +15,18 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: #f3f2ef;
   color: black;
 }
 
 a {
   text-decoration: none;
+}
+
+.container {
+  width: 50%;
 }
 
 .invitations-bar {
@@ -36,4 +42,12 @@ a {
 
 .invitations-bar__manage a {
   color: #666666;
+  font-weight: 500;
+}
+
+.cards {
+  margin-top: 2rem;
+  background-color: var(--box-bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
 }
