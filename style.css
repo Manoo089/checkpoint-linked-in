@@ -4,7 +4,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --box-bg-color: #ffffff;
+  --border-color: #e9e8e5;
+}
+
 html {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
+}
+
+body {
+  background-color: #f3f2ef;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.invitations-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 0 2rem;
+  background: var(--box-bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  font-size: 2rem;
+}
+
+.invitations-bar__manage a {
+  color: #666666;
 }
