@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet" />
     <title>Checkpoint Linked-In</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <main class="container">
-      <article class="invitations-bar">
-        <p class="invitations-bar__pending">No pending invitations</p>
-        <p class="invitations-bar__manage"><a href="#">Manage</a></p>
-      </article>
-
-      <div class="container-cards">
-        <article class="container-cards__heading">
-          <p>People you may know in Greater Landshut Metropolitan Area</p>
-          <p class="container-cards__heading-showall">
-            <a href="#">See all</a>
-          </p>
+        <article class="invitations-bar">
+            <p class="invitations-bar__pending">No pending invitations</p>
+            <p class="invitations-bar__manage"><a href="#">Manage</a></p>
         </article>
 
-        <!-- *********** CARD ************ -->
-        <div class="cards">
-          <article class="card">
-            <div class="card__header">
-              <div class="card__header-background"></div>
-              <div class="card__profile"></div>
-            </div>
+        <div class="container-cards">
+            <article class="container-cards__heading">
+                <p>People you may know in Greater Landshut Metropolitan Area</p>
+                <p class="container-cards__heading-showall">
+                    <a href="#">See all</a>
+                </p>
+            </article>
 
-            <div class="card__body">
-              <section class="card__profile-name">
-                <p class="card__profile-name-text">Ms Caroline Hansen</p>
-              </section>
-              <section class="card__profile-work">
-                <p class="card__profile-work-text">Senior Developer</p>
-              </section>
-            </div>
+            <!-- *********** CARD ************ -->
+            <div class="cards" id="cards">
+                <article class="card">
+                    <div class="card__header">
+                        <div class="card__header-background">
+                            <img src="https://source.unsplash.com/random/300×300" />
+                        </div>
+                        <div class="card__profile">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+                        </div>
+                    </div>
 
-            <div class="card__footer">
-              <section class="card__footer-mutual-container">
-                <p class="card__footer-mutual">
-                  <span class="infinity-svg"
-                    ><svg
+                    <div class="card__body">
+                        <section class="card__profile-name">
+                            <p class="card__profile-name-text">Ms Caroline Hansen</p>
+                        </section>
+                        <section class="card__profile-work">
+                            <p class="card__profile-work-text">Senior Developer</p>
+                        </section>
+                    </div>
+
+                    <div class="card__footer">
+                        <section class="card__footer-mutual-container">
+                            <p class="card__footer-mutual">
+                                <span class="infinity-svg"><svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 16 16"
                       data-supported-dps="16x16"
