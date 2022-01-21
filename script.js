@@ -99,12 +99,14 @@ function loadAndRender() {
 
             Promise.all(readyCards).then(() => {
                 const deleteCardButton = document.querySelectorAll(".remove-button");
+                const buttons = document.querySelectorAll(".remove-button");
+                buttons.forEach((button) => {
+                    button.addEventListener("click", (e) => {
+                        const element = e.target.parentElement.parentElement.parentElement;
 
-                deleteCardButton.forEach((button) => {
-                    button.addEventListener("click", () => {
-                        const allCards = document.querySelector("#cards");
-                        const thisCard = document.querySelector(".card");
-                        allCards.removeChild(thisCard);
+                        if (e.target) {
+                            element.remove();
+                        }
                     });
                 });
 
@@ -120,6 +122,10 @@ function loadAndRender() {
                 });
             });
         });
+}
+
+function deleteCard() {
+    console.log("geklickt");
 }
 
 loadAndRender();
