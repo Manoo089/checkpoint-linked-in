@@ -62,8 +62,7 @@ function renderCard(card) {
 <button class="card__footer-button">Connect</button>
 </div>`;
 }
-
-const linkedInBack =
+const linkedInBackgound =
     "https://static-exp1.licdn.com/sc/h/55k1z8997gh8dwtihm11aajyq";
 const url = "https://dummy-apis.netlify.app/api/contact-suggestions?count=8";
 
@@ -88,9 +87,37 @@ function loadAndRender() {
                     const backgroundImgTag =
                         document.querySelectorAll("#background-image");
                     backgroundImgTag.forEach((bgImg) => {
-                        bgImg.src = linkedInBack;
+                        bgImg.src = linkedInBackgound;
                     });
                 }
+            });
+            const readyCards = [];
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                readyCards.push(card);
+            }
+
+            Promise.all(readyCards).then(() => {
+                const deleteCardButton = document.querySelectorAll(".remove-button");
+
+                deleteCardButton.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const allCards = document.querySelector("#cards");
+                        const thisCard = document.querySelector(".card");
+                        allCards.removeChild(thisCard);
+                    });
+                });
+
+                const connectButton = document.querySelectorAll(".card__footer-button");
+                connectButton.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        if (button.textContent === "Connect") {
+                            button.textContent = "Pending";
+                        } else {
+                            button.textContent = "Connect";
+                        }
+                    });
+                });
             });
         });
 }
