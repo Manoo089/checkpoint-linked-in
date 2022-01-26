@@ -36,7 +36,6 @@ function initialGetProfilesData() {
                 if (profile.backgroundImage === "") {
                     profile.backgroundImage = linkedInBackgound;
                 }
-                profile.id = createId(profile.name.first + profile.name.last);
                 profiles.push(profile);
                 if (profiles.length === 8) {
                     renderAll();
@@ -50,7 +49,7 @@ function initialGetProfilesData() {
 function renderAll() {
     profiles.forEach((card) => {
         createAndAddElements(card);
-        removeCardListener(removeButton);
+        removeCardListener(removeButton, card);
         connectButtonListener(cardFooterConnectButton);
     });
 }
@@ -69,7 +68,6 @@ function getNewProfile() {
                 if (profile.backgroundImage === "") {
                     profile.backgroundImage = linkedInBackgound;
                 }
-                profile.id = createId(profile.name.first + profile.name.last);
                 profiles.push(profile);
             });
             renderNewUser();
@@ -86,13 +84,14 @@ function renderNewUser() {
     });
 }
 
-function removeCardListener(button) {
+function removeCardListener(button, card) {
     button.addEventListener("click", (e) => {
         const button = e.target;
         const element = button.parentElement.parentElement.parentElement;
         removeFading(element);
 
-        profiles = profiles.filter((profile) => profile.id !== button.id);
+        const indexCard = profiles.indexOf(card);
+        profiles.splice(indexCard, 1);
         getNewProfile();
     });
     return button;
@@ -241,10 +240,6 @@ const createAndAddElements = (card) => {
 
     cardFooterElem.appendChild(cardFooterConnectButton);
 };
-
-function createId(str) {
-    return str.trim().replaceAll(" ", "").toLowerCase();
-}
 
 function removeFading(el) {
     el.style.animation = "opacity-reverse 405ms linear";

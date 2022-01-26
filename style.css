@@ -159,8 +159,6 @@ a {
 .card__header-background {
     width: 100%;
     height: 5vmin;
-    background-size: cover;
-    background-position: center center;
     overflow: hidden;
 }
 
