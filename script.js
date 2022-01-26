@@ -1,8 +1,10 @@
-const url = "https://dummy-apis.netlify.app/api/contact-suggestions?count=1";
+const urlEight =
+    "https://dummy-apis.netlify.app/api/contact-suggestions?count=8";
+const urlOne = "https://dummy-apis.netlify.app/api/contact-suggestions?count=1";
 const linkedInBackgound =
     "https://static-exp1.licdn.com/sc/h/55k1z8997gh8dwtihm11aajyq";
 let profiles = [];
-let count = localStorage.getItem("counter");
+let count = localStorage.getItem("counter") || 0;
 
 function renderInvitations(pendingInvitations) {
     pendingInvitations = document.querySelector(".invitations-bar__pending");
@@ -23,7 +25,7 @@ function renderInvitations(pendingInvitations) {
 }
 
 function initialGetProfilesData() {
-    fetch(url)
+    fetch(urlEight)
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -39,8 +41,6 @@ function initialGetProfilesData() {
                 profiles.push(profile);
                 if (profiles.length === 8) {
                     renderAll();
-                } else {
-                    initialGetProfilesData();
                 }
             });
         });
@@ -49,13 +49,11 @@ function initialGetProfilesData() {
 function renderAll() {
     profiles.forEach((card) => {
         createAndAddElements(card);
-        removeCardListener(removeButton, card);
-        connectButtonListener(cardFooterConnectButton);
     });
 }
 
 function getNewProfile() {
-    fetch(url)
+    fetch(urlOne)
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -78,8 +76,6 @@ function renderNewUser() {
     profiles.slice(7).forEach((card) => {
         let addFade = setTimeout(function() {
             createAndAddElements(card);
-            removeCardListener(removeButton);
-            connectButtonListener(cardFooterConnectButton);
         }, 400);
     });
 }
@@ -143,10 +139,11 @@ const createAndAddElements = (card) => {
     const cardHeaderRemoveElem = document.createElement("aside");
     cardHeaderRemoveElem.classList.add("card__header-remove-card");
 
-    removeButton = document.createElement("button");
+    const removeButton = document.createElement("button");
     removeButton.classList.add("remove-button");
-    removeButton.id = card.id;
     removeButton.innerText = "X";
+
+    removeCardListener(removeButton, card);
 
     const cardHeaderBackgroundElem = document.createElement("div");
     cardHeaderBackgroundElem.classList.add("card__header-background");
@@ -208,9 +205,11 @@ const createAndAddElements = (card) => {
           d="M11 3a5 5 0 00-3 1 5 5 0 100 8 5 5 0 103-9zM2 8a3 3 0 014.68-2.48 4.87 4.87 0 000 5A3 3 0 015 11a3 3 0 01-3-3zm9 3a3 3 0 01-1.68-.52 4.87 4.87 0 000-5A3 3 0 1111 11z"
         ></path></svg>`;
 
-    cardFooterConnectButton = document.createElement("button");
+    const cardFooterConnectButton = document.createElement("button");
     cardFooterConnectButton.classList.add("card__footer-button");
     cardFooterConnectButton.textContent = "Connect";
+
+    connectButtonListener(cardFooterConnectButton);
 
     // APPEND
 
@@ -242,9 +241,9 @@ const createAndAddElements = (card) => {
 };
 
 function removeFading(el) {
-    el.style.animation = "opacity-reverse 405ms linear";
+    el.style.animation = "opacity-reverse 205ms linear";
 
-    let deleteFade = setTimeout(fadeIn, 400);
+    let deleteFade = setTimeout(fadeIn, 200);
 
     function fadeIn() {
         el.remove();
