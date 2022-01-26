@@ -212,7 +212,7 @@ a {
     border-radius: 1.5rem;
     color: #0f69c3;
     font-weight: bold;
-    font-size: calc(0.5rem + 0.9vw);
+    font-size: calc(0.3rem + 0.9vw);
     cursor: pointer;
 }
 
